@@ -6,7 +6,7 @@ from config import *
 
 app = Flask(__name__)
 
-bucket = 'addemployee'
+bucket = 'addemployee-1'
 region = 'us-east-2'
 
 db_conn = connections.Connection(
@@ -57,8 +57,8 @@ def AddEmp():
 
         try:
             print("Data inserted in MySQL RDS... uploading image to S3...")
-            s3.Bucket("addemployee").put_object(Key=emp_image_file_name_in_s3, Body=emp_image_file)
-            bucket_location = boto3.client('s3').get_bucket_location(Bucket="addemployee")
+            s3.Bucket("addemployee-1").put_object(Key=emp_image_file_name_in_s3, Body=emp_image_file)
+            bucket_location = boto3.client('s3').get_bucket_location(Bucket="addemployee-1")
             s3_location = (bucket_location['LocationConstraint'])
 
             if s3_location is None:
@@ -68,7 +68,7 @@ def AddEmp():
 
             object_url = "https://s3{0}.amazonaws.com/{1}/{2}".format(
                 s3_location,
-                "addemployee",
+                "addemployee-1",
                 emp_image_file_name_in_s3)
 
         except Exception as e:
