@@ -10,10 +10,10 @@ bucket = 'addemployee-1'
 region = 'us-east-2'
 
 db_conn = connections.Connection(
-    host='database-1.cnhrtbxcopsu.ap-south-1.rds.amazonaws.com',
+    host='10.10.100.177:3306',
     port=3306,
-    user="admin",
-    password="mani8520",
+    user="root",
+    password="123",
     db="employee"
 
 )
