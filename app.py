@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from pymysql import connections
+import MySQLdb
 import os
 import boto3
 from config import *
@@ -9,7 +10,7 @@ app = Flask(__name__)
 bucket = 'addemployee-1'
 region = 'us-east-2'
 
-db_conn = connections.Connection(
+db_conn = MySQLdb.connect(
     host='10.10.100.177',
     port=3306,
     user="root",
