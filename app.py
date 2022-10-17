@@ -10,7 +10,7 @@ bucket = 'addemployee-1'
 region = 'us-east-2'
 
 db_conn = connections.Connection(
-    host='10.10.100.177:3306',
+    host='mysql://root:123@10.10.100.177:3306',
     port=3306,
     user="root",
     password="123",
